@@ -1,0 +1,29 @@
+#!/usr/bin/make -f
+
+BUILDDIR = build
+
+# firstly called by launchpad
+clean:
+	rm -rf $(BUILDDIR)
+
+# secondly called by launchpad
+build: build-arch
+
+build-arch:
+	mkdir $(BUILDDIR)
+	cd $(BUILDDIR);cmake -DCMAKE_BUILD_TYPE=Release -DCMAKE_INSTALL_PREFIX=/usr
+	make -C $(BUILDDIR)
+
+# thirdly called by launchpad
+binary: binary-arch
+
+binary-arch: libglm-dev
+
+libglm-dev:
+	cd $(BUILDDIR); DESTDIR=../debian/tmp make install
+	mkdir -p debian/tmp/DEBIAN
+	dpkg-gencontrol -plibglm-dev
+	dpkg --build debian/tmp ..
+	rm -rf debian/tmp
+
+.PHONY: build build-arch binary binary-arch clean libglm-dev

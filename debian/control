@@ -1,0 +1,11 @@
+Source: glm
+Section: misc
+Priority: optional
+Maintainer: Willy Scheibel <willy.scheibel@cginternals.com>
+Build-Depends: build-essential, cmake
+Standards-Version: 3.8.0
+
+Package: libglm-dev
+Architecture: any
+Homepage: https://github.com/cginternals/glm
+Description: OpenGL Mathematics (glm)
