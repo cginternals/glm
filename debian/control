@@ -1,4 +1,4 @@
-Source: glm
+Source: libglm
 Section: misc
 Priority: optional
 Maintainer: Willy Scheibel <willy.scheibel@cginternals.com>

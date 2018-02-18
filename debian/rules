@@ -11,7 +11,7 @@ build: build-arch
 
 build-arch:
 	mkdir $(BUILDDIR)
-	cd $(BUILDDIR);cmake -DCMAKE_BUILD_TYPE=Release -DCMAKE_INSTALL_PREFIX=/usr
+	cd $(BUILDDIR);cmake -DCMAKE_BUILD_TYPE=Release -DCMAKE_INSTALL_PREFIX=/usr ..
 	make -C $(BUILDDIR)
 
 # thirdly called by launchpad
